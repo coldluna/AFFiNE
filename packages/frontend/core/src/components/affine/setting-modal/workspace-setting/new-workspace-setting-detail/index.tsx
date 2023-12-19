@@ -9,6 +9,7 @@ import { useWorkspace } from '@toeverything/hooks/use-workspace';
 import { useWorkspaceInfo } from '@toeverything/hooks/use-workspace-info';
 
 import { useSelfHosted } from '../../../../../hooks/affine/use-server-flavor';
+import { ExperimentalFeatures } from '../experimental-features';
 import { DeleteLeaveWorkspace } from './delete-leave-workspace';
 import { EnableCloudPanel } from './enable-cloud';
 import { ExportPanel } from './export';
@@ -37,6 +38,7 @@ export const WorkspaceSettingDetail = (props: WorkspaceSettingDetailProps) => {
         })}
         subtitle={t['com.affine.settings.workspace.description']()}
       />
+      <ExperimentalFeatures />
       <SettingWrapper title={t['Info']()}>
         <SettingRow
           name={t['Workspace Profile']()}
