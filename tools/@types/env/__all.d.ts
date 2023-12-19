@@ -1,16 +1,15 @@
-import type { Environment, RuntimeConfig } from '@affine/env/global';
 import type {
-  ConfigStorageHandlerManager,
-  DBHandlerManager,
-  DebugHandlerManager,
-  DialogHandlerManager,
+  ConfigStorageHandler,
+  DBHandlers,
+  DebugHandlers,
+  DialogHandlers,
   EventMap,
-  ExportHandlerManager,
-  UIHandlerManager,
-  UnwrapManagerHandlerToClientSide,
-  UpdaterHandlerManager,
-  WorkspaceHandlerManager,
-} from '@toeverything/infra/index';
+  ExportHandlers,
+  UIHandlers,
+  UpdaterHandlers,
+  WorkspaceHandlers,
+} from '@affine/electron-api';
+import type { Environment, RuntimeConfig } from '@affine/env/global';
 
 declare global {
   interface Window {
@@ -18,14 +17,14 @@ declare global {
       electron: boolean;
     };
     apis: {
-      db: UnwrapManagerHandlerToClientSide<DBHandlerManager>;
-      debug: UnwrapManagerHandlerToClientSide<DebugHandlerManager>;
-      dialog: UnwrapManagerHandlerToClientSide<DialogHandlerManager>;
-      export: UnwrapManagerHandlerToClientSide<ExportHandlerManager>;
-      ui: UnwrapManagerHandlerToClientSide<UIHandlerManager>;
-      updater: UnwrapManagerHandlerToClientSide<UpdaterHandlerManager>;
-      workspace: UnwrapManagerHandlerToClientSide<WorkspaceHandlerManager>;
-      configStorage: UnwrapManagerHandlerToClientSide<ConfigStorageHandlerManager>;
+      db: DBHandlers;
+      debug: DebugHandlers;
+      dialog: DialogHandlers;
+      export: ExportHandlers;
+      ui: UIHandlers;
+      updater: UpdaterHandlers;
+      workspace: WorkspaceHandlers;
+      configStorage: ConfigStorageHandler;
     };
     events: EventMap;
     affine: {

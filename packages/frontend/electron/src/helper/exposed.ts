@@ -2,7 +2,7 @@ import type {
   DBHandlers,
   DialogHandlers,
   WorkspaceHandlers,
-} from '@toeverything/infra/type';
+} from '@affine/electron-api';
 
 import { dbEvents, dbHandlers } from './db';
 import { dialogHandlers } from './dialog';

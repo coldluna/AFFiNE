@@ -5,15 +5,10 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import { plugx } from '@plugxjs/vite-plugin';
-import {
-  packageJsonInputSchema,
-  packageJsonOutputSchema,
-} from '@toeverything/infra/type';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react-swc';
 import vue from '@vitejs/plugin-vue';
 import { build, type PluginOption } from 'vite';
-import type { z } from 'zod';
 
 const args = process.argv.splice(2);
 
@@ -68,21 +63,9 @@ const pluginDir = process.cwd();
 
 const packageJsonFile = path.resolve(pluginDir, 'package.json');
 
-const json: z.infer<typeof packageJsonInputSchema> = await readFile(
-  packageJsonFile,
-  {
-    encoding: 'utf-8',
-  }
-)
-  .then(text => JSON.parse(text))
-  .then(async json => {
-    const result = await packageJsonInputSchema.safeParseAsync(json);
-    if (result.success) {
-      return json;
-    } else {
-      throw new Error('invalid package.json', result.error);
-    }
-  });
+const json = await readFile(packageJsonFile, {
+  encoding: 'utf-8',
+}).then(text => JSON.parse(text));
 
 type Metadata = {
   assets: Set<string>;
@@ -116,8 +99,7 @@ const generatePackageJson: PluginOption = {
         },
         assets: [...metadata.assets],
       },
-    } satisfies z.infer<typeof packageJsonOutputSchema>;
-    packageJsonOutputSchema.parse(packageJson);
+    };
     this.emitFile({
       type: 'asset',
       fileName: 'package.json',

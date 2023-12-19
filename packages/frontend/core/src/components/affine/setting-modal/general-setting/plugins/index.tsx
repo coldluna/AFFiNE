@@ -9,15 +9,13 @@ import {
   pluginSettingAtom,
 } from '@toeverything/infra/__internal__/plugin';
 import { loadedPluginNameAtom } from '@toeverything/infra/atom';
-import type { packageJsonOutputSchema } from '@toeverything/infra/type';
 import { useAtom, useAtomValue } from 'jotai/react';
 import { startTransition, useCallback, useMemo } from 'react';
-import type { z } from 'zod';
 
 import { pluginItemStyle } from './style.css';
 
 type PluginItemProps = {
-  json: z.infer<typeof packageJsonOutputSchema>;
+  json: any;
 };
 
 type PluginSettingDetailProps = {

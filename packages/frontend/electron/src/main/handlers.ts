@@ -1,12 +1,11 @@
 import type {
-  ClipboardHandlerManager,
-  ConfigStorageHandlerManager,
-  DebugHandlerManager,
-  ExportHandlerManager,
-  UIHandlerManager,
-  UnwrapManagerHandlerToServerSide,
-  UpdaterHandlerManager,
-} from '@toeverything/infra/index';
+  ClipboardHandlers,
+  ConfigStorageHandlers,
+  DebugHandlers,
+  ExportHandlers,
+  UIHandlers,
+  UpdaterHandlers,
+} from '@affine/electron-api';
 import { ipcMain } from 'electron';
 
 import { clipboardHandlers } from './clipboard';
@@ -25,31 +24,20 @@ export const debugHandlers = {
   },
 };
 
+type WrapHandlers<T extends { [k: string]: (...args: any) => any }> = {
+  [K in keyof T]: (
+    e: Electron.IpcMainInvokeEvent,
+    ...args: Parameters<T[K]>
+  ) => ReturnType<T[K]>;
+};
+
 type AllHandlers = {
-  debug: UnwrapManagerHandlerToServerSide<
-    Electron.IpcMainInvokeEvent,
-    DebugHandlerManager
-  >;
-  clipboard: UnwrapManagerHandlerToServerSide<
-    Electron.IpcMainInvokeEvent,
-    ClipboardHandlerManager
-  >;
-  export: UnwrapManagerHandlerToServerSide<
-    Electron.IpcMainInvokeEvent,
-    ExportHandlerManager
-  >;
-  ui: UnwrapManagerHandlerToServerSide<
-    Electron.IpcMainInvokeEvent,
-    UIHandlerManager
-  >;
-  updater: UnwrapManagerHandlerToServerSide<
-    Electron.IpcMainInvokeEvent,
-    UpdaterHandlerManager
-  >;
-  configStorage: UnwrapManagerHandlerToServerSide<
-    Electron.IpcMainInvokeEvent,
-    ConfigStorageHandlerManager
-  >;
+  debug: WrapHandlers<DebugHandlers>;
+  clipboard: WrapHandlers<ClipboardHandlers>;
+  export: WrapHandlers<ExportHandlers>;
+  ui: WrapHandlers<UIHandlers>;
+  updater: WrapHandlers<UpdaterHandlers>;
+  configStorage: WrapHandlers<ConfigStorageHandlers>;
 };
 
 // Note: all of these handlers will be the single-source-of-truth for the apis exposed to the renderer process

@@ -5,6 +5,7 @@ import {
   Modal,
 } from '@affine/component/ui/modal';
 import { DebugLogger } from '@affine/debug';
+import type { LoadDBFileResult } from '@affine/electron-api';
 import { WorkspaceFlavour } from '@affine/env/workspace';
 import { useAFFiNEI18N } from '@affine/i18n/hooks';
 import { workspaceManagerAtom } from '@affine/workspace/atom';
@@ -14,7 +15,6 @@ import {
   buildShowcaseWorkspace,
   initEmptyPage,
 } from '@toeverything/infra/blocksuite';
-import type { LoadDBFileResult } from '@toeverything/infra/type';
 import { useAtomValue } from 'jotai';
 import type { KeyboardEvent } from 'react';
 import { useLayoutEffect } from 'react';

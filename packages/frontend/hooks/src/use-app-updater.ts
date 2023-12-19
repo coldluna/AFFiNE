@@ -1,6 +1,6 @@
+import type { UpdateMeta } from '@affine/electron-api';
 import { isBrowser } from '@affine/env/constant';
 import { appSettingAtom } from '@toeverything/infra/atom';
-import type { UpdateMeta } from '@toeverything/infra/type';
 import { atom, useAtom, useAtomValue } from 'jotai';
 import { atomWithObservable, atomWithStorage } from 'jotai/utils';
 import { useCallback, useState } from 'react';

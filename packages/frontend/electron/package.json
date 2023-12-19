@@ -24,6 +24,7 @@
   "devDependencies": {
     "@affine-test/kit": "workspace:*",
     "@affine/copilot-plugin": "workspace:*",
+    "@affine/electron-api": "workspace:*",
     "@affine/env": "workspace:*",
     "@affine/hello-world-plugin": "workspace:*",
     "@affine/image-preview-plugin": "workspace:*",

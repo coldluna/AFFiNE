@@ -345,6 +345,7 @@ __metadata:
     "@affine/cmdk": "workspace:*"
     "@affine/component": "workspace:*"
     "@affine/debug": "workspace:*"
+    "@affine/electron-api": "workspace:*"
     "@affine/env": "workspace:*"
     "@affine/graphql": "workspace:*"
     "@affine/i18n": "workspace:*"
@@ -454,12 +455,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@affine/electron-api@workspace:*, @affine/electron-api@workspace:packages/frontend/electron-api":
+  version: 0.0.0-use.local
+  resolution: "@affine/electron-api@workspace:packages/frontend/electron-api"
+  dependencies:
+    "@toeverything/infra": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@affine/electron@workspace:packages/frontend/electron":
   version: 0.0.0-use.local
   resolution: "@affine/electron@workspace:packages/frontend/electron"
   dependencies:
     "@affine-test/kit": "workspace:*"
     "@affine/copilot-plugin": "workspace:*"
+    "@affine/electron-api": "workspace:*"
     "@affine/env": "workspace:*"
     "@affine/hello-world-plugin": "workspace:*"
     "@affine/image-preview-plugin": "workspace:*"
@@ -13709,6 +13719,7 @@ __metadata:
   resolution: "@toeverything/hooks@workspace:packages/frontend/hooks"
   dependencies:
     "@affine/debug": "workspace:*"
+    "@affine/electron-api": "workspace:*"
     "@affine/env": "workspace:*"
     "@affine/workspace": "workspace:*"
     "@blocksuite/block-std": "npm:0.11.0-nightly-202312200102-8254dc9"
@@ -13917,6 +13928,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@types/affine__env@workspace:tools/@types/env"
   dependencies:
+    "@affine/electron-api": "workspace:*"
     "@affine/env": "workspace:*"
     "@toeverything/infra": "workspace:*"
   languageName: unknown

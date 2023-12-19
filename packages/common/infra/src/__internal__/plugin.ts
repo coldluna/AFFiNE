@@ -2,9 +2,6 @@ import type { CallbackMap } from '@affine/sdk/entry';
 import { assertExists } from '@blocksuite/global/utils';
 import { atomWithStorage } from 'jotai/utils';
 import { atom } from 'jotai/vanilla';
-import type { z } from 'zod';
-
-import type { packageJsonOutputSchema } from '../type.js';
 
 export const builtinPluginPaths = new Set(runtimeConfig.builtinPlugins);
 
@@ -30,9 +27,7 @@ export function invokeCleanup(pluginName: string) {
   pluginCleanupMap.delete(pluginName);
 }
 
-export const pluginPackageJson = atom<
-  z.infer<typeof packageJsonOutputSchema>[]
->([]);
+export const pluginPackageJson = atom<any[]>([]);
 
 export const enabledPluginAtom = atomWithStorage('affine-enabled-plugin', [
   '@affine/image-preview-plugin',

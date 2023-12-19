@@ -9,8 +9,6 @@ import {
   getCurrentStore,
   loadedPluginNameAtom,
 } from '@toeverything/infra/atom';
-import { packageJsonOutputSchema } from '@toeverything/infra/type';
-import type { z } from 'zod';
 
 import { createSetup } from './plugins/setup';
 
@@ -65,10 +63,7 @@ export async function bootstrapPluginSystem(
     [...builtinPluginPaths].map(url => {
       return fetch(`${url}/package.json`)
         .then(async res => {
-          const packageJson = (await res.json()) as z.infer<
-            typeof packageJsonOutputSchema
-          >;
-          packageJsonOutputSchema.parse(packageJson);
+          const packageJson = await res.json();
           const {
             name: pluginName,
             affinePlugin: {

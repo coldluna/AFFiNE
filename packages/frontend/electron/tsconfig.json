@@ -20,6 +20,9 @@
       "path": "../../frontend/native"
     },
     {
+      "path": "../../frontend/electron-api"
+    },
+    {
       "path": "../../common/infra"
     },
     {
