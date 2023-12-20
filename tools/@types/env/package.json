@@ -4,9 +4,7 @@
   "types": "./__all.d.ts",
   "type": "module",
   "dependencies": {
-    "@affine/electron-api": "workspace:*",
-    "@affine/env": "workspace:*",
-    "@toeverything/infra": "workspace:*"
+    "@affine/env": "workspace:*"
   },
   "version": "0.11.0"
 }

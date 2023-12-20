@@ -1,3 +1,4 @@
+import '@affine/electron-api/client-global.d.ts';
 import 'ses';
 import './polyfill/intl-segmenter';
 import './polyfill/request-idle-callback';

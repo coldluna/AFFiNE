@@ -1,3 +1,5 @@
+import '@affine/electron-api/client-global.d.ts';
+
 import {
   cloudWorkspaceFactory,
   createCloudWorkspaceListProvider,
