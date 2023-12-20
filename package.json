@@ -8,6 +8,7 @@
     ".",
     "packages/*/*",
     "tools/*",
+    "docs",
     "!tools/@types",
     "tools/@types/*",
     "tests/*",

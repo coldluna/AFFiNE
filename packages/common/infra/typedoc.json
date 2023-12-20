@@ -1,0 +1,9 @@
+{
+  "extends": ["../../../typedoc.base.json"],
+  "entryPoints": [
+    "src/app-config-storage.ts",
+    "src/atom/index.ts",
+    "src/blocksuite/index.ts",
+    "src/command/index.ts"
+  ]
+}

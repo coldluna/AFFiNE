@@ -79,3 +79,5 @@ lib
 affine.db
 apps/web/next-routes.conf
 .nx
+
+docs/reference

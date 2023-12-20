@@ -1,0 +1,12 @@
+{
+    "name": "@affine/docs",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build": "typedoc --options ../typedoc.json"
+    },
+    "devDependencies": {
+        "typedoc": "^0.25.4"
+    },
+    "version": "0.10.3-canary.2"
+}
