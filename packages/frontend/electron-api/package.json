@@ -4,7 +4,12 @@
   "type": "module",
   "private": true,
   "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts"
+  },
   "devDependencies": {
-    "@toeverything/infra": "workspace:*"
+    "@toeverything/infra": "workspace:*",
+    "electron": "^27.1.0"
   }
 }

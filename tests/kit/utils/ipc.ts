@@ -1,3 +1,5 @@
+import '@affine/electron-api/client-global.d.ts';
+
 // Credit: https://github.com/spaceagetv/electron-playwright-helpers/blob/main/src/ipc_helpers.ts
 import type { Page } from '@playwright/test';
 import type { ElectronApplication } from 'playwright';

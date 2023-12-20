@@ -1,5 +1,6 @@
 import path from 'node:path';
 
+import { apis } from '@affine/electron-api/client';
 import { test } from '@affine-test/kit/electron';
 import { clickSideBarCurrentWorkspaceBanner } from '@affine-test/kit/utils/sidebar';
 import { expect } from '@playwright/test';
@@ -29,7 +30,7 @@ test.skip('move workspace db file', async ({ page, appInfo, workspace }) => {
 
   // move db file to tmp folder
   await page.evaluate(tmpPath => {
-    window.apis?.dialog.setFakeDialogResult({
+    apis?.dialog.setFakeDialogResult({
       filePath: tmpPath,
     });
   }, tmpPath);
@@ -71,7 +72,7 @@ test.fixme('export then add', async ({ page, appInfo, workspace }) => {
 
   // export db file to tmp folder
   await page.evaluate(tmpPath => {
-    window.apis?.dialog.setFakeDialogResult({
+    apis?.dialog.setFakeDialogResult({
       filePath: tmpPath,
     });
   }, tmpPath);
@@ -90,7 +91,7 @@ test.fixme('export then add', async ({ page, appInfo, workspace }) => {
   await page.getByTestId('add-or-new-workspace').click();
 
   await page.evaluate(tmpPath => {
-    window.apis?.dialog.setFakeDialogResult({
+    apis?.dialog.setFakeDialogResult({
       filePath: tmpPath,
     });
   }, tmpPath);

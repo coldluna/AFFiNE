@@ -1,7 +1,7 @@
 import { pushNotificationAtom } from '@affine/component/notification-center';
 import { SettingRow } from '@affine/component/setting-components';
 import { Button } from '@affine/component/ui/button';
-import type { SaveDBFileResult } from '@affine/electron-api';
+import { apis } from '@affine/electron-api/client';
 import { useAFFiNEI18N } from '@affine/i18n/hooks';
 import type { Workspace, WorkspaceMetadata } from '@affine/workspace';
 import { useAsyncCallback } from '@toeverything/hooks/affine-async-hooks';
@@ -30,8 +30,7 @@ export const ExportPanel = ({
     try {
       await workspace.engine.sync.waitForSynced();
       await workspace.engine.blob.sync();
-      const result: SaveDBFileResult =
-        await window.apis?.dialog.saveDBFileAs(workspaceId);
+      const result = await apis?.dialog.saveDBFileAs(workspaceId);
       if (result?.error) {
         throw new Error(result.error);
       } else if (!result?.canceled) {

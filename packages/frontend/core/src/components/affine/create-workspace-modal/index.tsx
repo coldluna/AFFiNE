@@ -6,6 +6,7 @@ import {
 } from '@affine/component/ui/modal';
 import { DebugLogger } from '@affine/debug';
 import type { LoadDBFileResult } from '@affine/electron-api';
+import { apis } from '@affine/electron-api/client';
 import { WorkspaceFlavour } from '@affine/env/workspace';
 import { useAFFiNEI18N } from '@affine/i18n/hooks';
 import { workspaceManagerAtom } from '@affine/workspace/atom';
@@ -112,12 +113,12 @@ export const CreateWorkspaceModal = ({
       // after it is done, it will effectively add a new workspace to app-data folder
       // so after that, we will be able to load it via importLocalWorkspace
       (async () => {
-        if (!window.apis) {
+        if (!apis) {
           return;
         }
         logger.info('load db file');
         setStep(undefined);
-        const result: LoadDBFileResult = await window.apis.dialog.loadDBFile();
+        const result: LoadDBFileResult = await apis.dialog.loadDBFile();
         if (result.workspaceId && !canceled) {
           workspaceManager._addLocalWorkspace(result.workspaceId);
           onCreate(result.workspaceId);

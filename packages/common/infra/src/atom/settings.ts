@@ -73,7 +73,7 @@ const appSettingEffect = atomEffect(get => {
   if (environment.isDesktop) {
     console.log('set config', settings);
     // this api type in @affine/electron-api, but it is circular dependency this package, use any here
-    (window.apis?.updater as any)
+    (window as any).apis?.updater
       .setConfig({
         autoCheckUpdate: settings.autoCheckUpdate,
         autoDownloadUpdate: settings.autoDownloadUpdate,
