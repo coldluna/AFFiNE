@@ -26,8 +26,8 @@
   "devDependencies": {
     "@blocksuite/store": "0.11.0-nightly-202312210105-edfa58e",
     "vite": "^5.0.6",
-    "vite-plugin-dts": "3.6.0",
-    "vitest": "1.0.4",
+    "vite-plugin-dts": "3.6.4",
+    "vitest": "1.1.0",
     "yjs": "^13.6.10"
   },
   "peerDependencies": {
