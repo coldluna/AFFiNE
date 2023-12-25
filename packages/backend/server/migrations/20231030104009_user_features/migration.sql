@@ -41,5 +41,6 @@ CREATE UNIQUE INDEX "features_feature_version_key" ON "features"("feature", "ver
 -- AddForeignKey
 ALTER TABLE "user_features" ADD CONSTRAINT "user_features_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
+#未执行
 -- AddForeignKey
 ALTER TABLE "user_features" ADD CONSTRAINT "user_features_feature_id_fkey" FOREIGN KEY ("feature_id") REFERENCES "features"("id") ON DELETE CASCADE ON UPDATE CASCADE;
